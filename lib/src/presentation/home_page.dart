@@ -25,11 +25,11 @@ class HomePage extends StatelessWidget {
               }
 
               return IconButton(
-              icon: const Icon(Icons.movie),
-              onPressed: () {
-              final Store<AppState> store = StoreProvider.of<AppState>(context);
-              store.dispatch(GetMovies());
-              },
+                icon: const Icon(Icons.movie),
+                onPressed: () {
+                  final Store<AppState> store = StoreProvider.of<AppState>(context);
+                  store.dispatch(GetMovies());
+                },
               );
             },
           ),
