@@ -1,10 +1,9 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
 import 'package:yts_movies_gat/src/models/movie.dart';
 
-class MovieApi {
-  const MovieApi({required String apiUrl, required Client client})
+class MoviesApi {
+  const MoviesApi({required String apiUrl, required Client client})
       : _apiUrl = apiUrl,
         _client = client;
 
@@ -19,8 +18,7 @@ class MovieApi {
       throw StateError(response.body);
     }
 
-    final Map<String, dynamic> body =
-        jsonDecode(response.body) as Map<String, dynamic>;
+    final Map<String, dynamic> body = jsonDecode(response.body) as Map<String, dynamic>;
     final Map<String, dynamic> data = body['data'] as Map<String, dynamic>;
     final List<dynamic> movies = data['movies'] as List<dynamic>;
 

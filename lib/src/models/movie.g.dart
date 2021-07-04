@@ -15,12 +15,10 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
   final String wireName = 'Movie';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Movie object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Movie object, {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'title',
-      serializers.serialize(object.title,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.title, specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -38,8 +36,7 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
       final Object? value = iterator.current;
       switch (key) {
         case 'title':
-          result.title = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -52,16 +49,14 @@ class _$Movie extends Movie {
   @override
   final String title;
 
-  factory _$Movie([void Function(MovieBuilder)? updates]) =>
-      (new MovieBuilder()..update(updates)).build();
+  factory _$Movie([void Function(MovieBuilder)? updates]) => (new MovieBuilder()..update(updates)).build();
 
   _$Movie._({required this.title}) : super._() {
     BuiltValueNullFieldError.checkNotNull(title, 'Movie', 'title');
   }
 
   @override
-  Movie rebuild(void Function(MovieBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Movie rebuild(void Function(MovieBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   MovieBuilder toBuilder() => new MovieBuilder()..replace(this);
@@ -79,8 +74,7 @@ class _$Movie extends Movie {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Movie')..add('title', title))
-        .toString();
+    return (newBuiltValueToStringHelper('Movie')..add('title', title)).toString();
   }
 }
 
@@ -115,10 +109,7 @@ class MovieBuilder implements Builder<Movie, MovieBuilder> {
 
   @override
   _$Movie build() {
-    final _$result = _$v ??
-        new _$Movie._(
-            title:
-                BuiltValueNullFieldError.checkNotNull(title, 'Movie', 'title'));
+    final _$result = _$v ?? new _$Movie._(title: BuiltValueNullFieldError.checkNotNull(title, 'Movie', 'title'));
     replace(_$result);
     return _$result;
   }
