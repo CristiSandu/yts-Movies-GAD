@@ -27,8 +27,6 @@ abstract class Movie implements Built<Movie, MovieBuilder> {
 
   String get state;
 
-  // BuiltList<String> get genres;
-
   String get language;
 
   String get summary;
@@ -41,6 +39,8 @@ abstract class Movie implements Built<Movie, MovieBuilder> {
 
   @BuiltValueField(wireName: 'large_cover_image')
   String get largeCoverImage;
+
+  // Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 
   static Serializer<Movie> get serializer => _$movieSerializer;
 }

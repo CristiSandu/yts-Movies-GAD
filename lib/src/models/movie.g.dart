@@ -15,38 +15,30 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
   final String wireName = 'Movie';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Movie object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, Movie object, {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'year',
       serializers.serialize(object.year, specifiedType: const FullType(int)),
       'title',
-      serializers.serialize(object.title,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.title, specifiedType: const FullType(String)),
       'rating',
       serializers.serialize(object.rating, specifiedType: const FullType(num)),
       'runtime',
       serializers.serialize(object.runtime, specifiedType: const FullType(int)),
       'state',
-      serializers.serialize(object.state,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.state, specifiedType: const FullType(String)),
       'language',
-      serializers.serialize(object.language,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.language, specifiedType: const FullType(String)),
       'summary',
-      serializers.serialize(object.summary,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.summary, specifiedType: const FullType(String)),
       'date_uploaded',
-      serializers.serialize(object.dateUploaded,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.dateUploaded, specifiedType: const FullType(String)),
       'medium_cover_image',
-      serializers.serialize(object.image,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.image, specifiedType: const FullType(String)),
       'large_cover_image',
-      serializers.serialize(object.largeCoverImage,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.largeCoverImage, specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -64,48 +56,37 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int)) as int;
           break;
         case 'year':
-          result.year = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+          result.year = serializers.deserialize(value, specifiedType: const FullType(int)) as int;
           break;
         case 'title':
-          result.title = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
         case 'rating':
-          result.rating = serializers.deserialize(value,
-              specifiedType: const FullType(num)) as num;
+          result.rating = serializers.deserialize(value, specifiedType: const FullType(num)) as num;
           break;
         case 'runtime':
-          result.runtime = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+          result.runtime = serializers.deserialize(value, specifiedType: const FullType(int)) as int;
           break;
         case 'state':
-          result.state = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.state = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
         case 'language':
-          result.language = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.language = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
         case 'summary':
-          result.summary = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.summary = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
         case 'date_uploaded':
-          result.dateUploaded = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.dateUploaded = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
         case 'medium_cover_image':
-          result.image = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.image = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
         case 'large_cover_image':
-          result.largeCoverImage = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.largeCoverImage = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -138,8 +119,7 @@ class _$Movie extends Movie {
   @override
   final String largeCoverImage;
 
-  factory _$Movie([void Function(MovieBuilder)? updates]) =>
-      (new MovieBuilder()..update(updates)).build();
+  factory _$Movie([void Function(MovieBuilder)? updates]) => (new MovieBuilder()..update(updates)).build();
 
   _$Movie._(
       {required this.id,
@@ -162,16 +142,13 @@ class _$Movie extends Movie {
     BuiltValueNullFieldError.checkNotNull(state, 'Movie', 'state');
     BuiltValueNullFieldError.checkNotNull(language, 'Movie', 'language');
     BuiltValueNullFieldError.checkNotNull(summary, 'Movie', 'summary');
-    BuiltValueNullFieldError.checkNotNull(
-        dateUploaded, 'Movie', 'dateUploaded');
+    BuiltValueNullFieldError.checkNotNull(dateUploaded, 'Movie', 'dateUploaded');
     BuiltValueNullFieldError.checkNotNull(image, 'Movie', 'image');
-    BuiltValueNullFieldError.checkNotNull(
-        largeCoverImage, 'Movie', 'largeCoverImage');
+    BuiltValueNullFieldError.checkNotNull(largeCoverImage, 'Movie', 'largeCoverImage');
   }
 
   @override
-  Movie rebuild(void Function(MovieBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Movie rebuild(void Function(MovieBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   MovieBuilder toBuilder() => new MovieBuilder()..replace(this);
@@ -201,11 +178,7 @@ class _$Movie extends Movie {
                 $jc(
                     $jc(
                         $jc(
-                            $jc(
-                                $jc(
-                                    $jc($jc($jc(0, id.hashCode), year.hashCode),
-                                        title.hashCode),
-                                    rating.hashCode),
+                            $jc($jc($jc($jc($jc(0, id.hashCode), year.hashCode), title.hashCode), rating.hashCode),
                                 runtime.hashCode),
                             state.hashCode),
                         language.hashCode),
@@ -278,8 +251,7 @@ class MovieBuilder implements Builder<Movie, MovieBuilder> {
 
   String? _largeCoverImage;
   String? get largeCoverImage => _$this._largeCoverImage;
-  set largeCoverImage(String? largeCoverImage) =>
-      _$this._largeCoverImage = largeCoverImage;
+  set largeCoverImage(String? largeCoverImage) => _$this._largeCoverImage = largeCoverImage;
 
   MovieBuilder();
 
@@ -319,24 +291,15 @@ class MovieBuilder implements Builder<Movie, MovieBuilder> {
         new _$Movie._(
             id: BuiltValueNullFieldError.checkNotNull(id, 'Movie', 'id'),
             year: BuiltValueNullFieldError.checkNotNull(year, 'Movie', 'year'),
-            title:
-                BuiltValueNullFieldError.checkNotNull(title, 'Movie', 'title'),
-            rating: BuiltValueNullFieldError.checkNotNull(
-                rating, 'Movie', 'rating'),
-            runtime: BuiltValueNullFieldError.checkNotNull(
-                runtime, 'Movie', 'runtime'),
-            state:
-                BuiltValueNullFieldError.checkNotNull(state, 'Movie', 'state'),
-            language: BuiltValueNullFieldError.checkNotNull(
-                language, 'Movie', 'language'),
-            summary: BuiltValueNullFieldError.checkNotNull(
-                summary, 'Movie', 'summary'),
-            dateUploaded: BuiltValueNullFieldError.checkNotNull(
-                dateUploaded, 'Movie', 'dateUploaded'),
-            image:
-                BuiltValueNullFieldError.checkNotNull(image, 'Movie', 'image'),
-            largeCoverImage: BuiltValueNullFieldError.checkNotNull(
-                largeCoverImage, 'Movie', 'largeCoverImage'));
+            title: BuiltValueNullFieldError.checkNotNull(title, 'Movie', 'title'),
+            rating: BuiltValueNullFieldError.checkNotNull(rating, 'Movie', 'rating'),
+            runtime: BuiltValueNullFieldError.checkNotNull(runtime, 'Movie', 'runtime'),
+            state: BuiltValueNullFieldError.checkNotNull(state, 'Movie', 'state'),
+            language: BuiltValueNullFieldError.checkNotNull(language, 'Movie', 'language'),
+            summary: BuiltValueNullFieldError.checkNotNull(summary, 'Movie', 'summary'),
+            dateUploaded: BuiltValueNullFieldError.checkNotNull(dateUploaded, 'Movie', 'dateUploaded'),
+            image: BuiltValueNullFieldError.checkNotNull(image, 'Movie', 'image'),
+            largeCoverImage: BuiltValueNullFieldError.checkNotNull(largeCoverImage, 'Movie', 'largeCoverImage'));
     replace(_$result);
     return _$result;
   }
