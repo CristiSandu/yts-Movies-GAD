@@ -13,7 +13,9 @@ part 'app_state.g.dart';
 abstract class AppState implements Built<AppState, AppStateBuilder> {
   factory AppState() {
     return _$AppState((AppStateBuilder b) {
-      b.isLoading = false;
+      b
+        ..isLoading = false
+        ..page = 1;
     });
   }
 
@@ -28,6 +30,8 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
   bool get isLoading;
 
   String? get error;
+
+  int get page;
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 

@@ -1,6 +1,10 @@
 import 'package:yts_movies_gat/src/models/movie.dart';
 
-class GetMovies {}
+class GetMovies {
+  const GetMovies(this.page);
+
+  final int page;
+}
 
 class GetMoviesSuccessful {
   GetMoviesSuccessful(this.movies);

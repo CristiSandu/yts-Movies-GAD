@@ -22,6 +22,8 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
       serializers.serialize(object.movies, specifiedType: const FullType(BuiltList, const [const FullType(Movie)])),
       'isLoading',
       serializers.serialize(object.isLoading, specifiedType: const FullType(bool)),
+      'page',
+      serializers.serialize(object.page, specifiedType: const FullType(int)),
     ];
     Object? value;
     value = object.error;
@@ -52,6 +54,9 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
         case 'error':
           result.error = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
+        case 'page':
+          result.page = serializers.deserialize(value, specifiedType: const FullType(int)) as int;
+          break;
       }
     }
 
@@ -66,12 +71,15 @@ class _$AppState extends AppState {
   final bool isLoading;
   @override
   final String? error;
+  @override
+  final int page;
 
   factory _$AppState([void Function(AppStateBuilder)? updates]) => (new AppStateBuilder()..update(updates)).build();
 
-  _$AppState._({required this.movies, required this.isLoading, this.error}) : super._() {
+  _$AppState._({required this.movies, required this.isLoading, this.error, required this.page}) : super._() {
     BuiltValueNullFieldError.checkNotNull(movies, 'AppState', 'movies');
     BuiltValueNullFieldError.checkNotNull(isLoading, 'AppState', 'isLoading');
+    BuiltValueNullFieldError.checkNotNull(page, 'AppState', 'page');
   }
 
   @override
@@ -83,12 +91,16 @@ class _$AppState extends AppState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is AppState && movies == other.movies && isLoading == other.isLoading && error == other.error;
+    return other is AppState &&
+        movies == other.movies &&
+        isLoading == other.isLoading &&
+        error == other.error &&
+        page == other.page;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, movies.hashCode), isLoading.hashCode), error.hashCode));
+    return $jf($jc($jc($jc($jc(0, movies.hashCode), isLoading.hashCode), error.hashCode), page.hashCode));
   }
 
   @override
@@ -96,7 +108,8 @@ class _$AppState extends AppState {
     return (newBuiltValueToStringHelper('AppState')
           ..add('movies', movies)
           ..add('isLoading', isLoading)
-          ..add('error', error))
+          ..add('error', error)
+          ..add('page', page))
         .toString();
   }
 }
@@ -116,6 +129,10 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   String? get error => _$this._error;
   set error(String? error) => _$this._error = error;
 
+  int? _page;
+  int? get page => _$this._page;
+  set page(int? page) => _$this._page = page;
+
   AppStateBuilder();
 
   AppStateBuilder get _$this {
@@ -124,6 +141,7 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
       _movies = $v.movies.toBuilder();
       _isLoading = $v.isLoading;
       _error = $v.error;
+      _page = $v.page;
       _$v = null;
     }
     return this;
@@ -148,7 +166,8 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
           new _$AppState._(
               movies: movies.build(),
               isLoading: BuiltValueNullFieldError.checkNotNull(isLoading, 'AppState', 'isLoading'),
-              error: error);
+              error: error,
+              page: BuiltValueNullFieldError.checkNotNull(page, 'AppState', 'page'));
     } catch (_) {
       late String _$failedField;
       try {

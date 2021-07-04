@@ -19,11 +19,13 @@ void main() {
     initialState: AppState(),
     middleware: appMiddleware.middleware,
   );
-  store.dispatch(GetMovies());
+  store.dispatch(GetMovies(store.state.page));
 
-  runApp(YtsApp(
-    store: store,
-  ));
+  runApp(
+    YtsApp(
+      store: store,
+    ),
+  );
 }
 
 class YtsApp extends StatelessWidget {
@@ -34,8 +36,9 @@ class YtsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreProvider<AppState>(
       store: store,
-      child: const MaterialApp(
-        home: HomePage(),
+      child: MaterialApp(
+        home: const HomePage(),
+        theme: ThemeData.dark(),
       ),
     );
   }

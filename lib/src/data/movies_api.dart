@@ -10,8 +10,8 @@ class MoviesApi {
   final String _apiUrl;
   final Client _client;
 
-  Future<List<Movie>> getMovies() async {
-    final Uri uri = Uri.parse('$_apiUrl/list_movies.json');
+  Future<List<Movie>> getMovies(int page) async {
+    final Uri uri = Uri.parse('$_apiUrl/list_movies.json?page=$page');
     final Response response = await _client.get(uri);
 
     if (response.statusCode >= 300) {

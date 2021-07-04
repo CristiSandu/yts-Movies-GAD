@@ -19,7 +19,7 @@ class AppMiddleware {
     next(action);
 
     try {
-      final List<Movie> movies = await _moviesApi.getMovies();
+      final List<Movie> movies = await _moviesApi.getMovies(action.page);
       store.dispatch(GetMoviesSuccessful(movies));
     } catch (error) {
       store.dispatch(GetMoviesError(error));
