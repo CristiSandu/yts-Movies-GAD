@@ -7,6 +7,7 @@ import 'package:yts_movies_gat/src/data/movies_api.dart';
 import 'package:yts_movies_gat/src/middleware/middleware.dart';
 import 'package:yts_movies_gat/src/models/app_state.dart';
 import 'package:yts_movies_gat/src/presentation/home_page.dart';
+import 'package:yts_movies_gat/src/presentation/movie_detailes.dart';
 import 'package:yts_movies_gat/src/reducer/reducer.dart';
 
 void main() {
@@ -36,10 +37,11 @@ class YtsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreProvider<AppState>(
       store: store,
-      child: MaterialApp(
-        home: const HomePage(),
-        theme: ThemeData.dark(),
-      ),
+      child: MaterialApp(home: const HomePage(), theme: ThemeData.light(), routes: <String, WidgetBuilder>{
+        '/details': (BuildContext context) {
+          return const MovieDetails();
+        }
+      }),
     );
   }
 }

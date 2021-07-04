@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 import 'package:yts_movies_gat/src/actions/get_movies.dart';
+import 'package:yts_movies_gat/src/actions/set.dart';
 import 'package:yts_movies_gat/src/container/is_loading_container.dart';
 import 'package:yts_movies_gat/src/container/movies_container.dart';
 import 'package:yts_movies_gat/src/models/app_state.dart';
@@ -82,13 +83,19 @@ class _HomePageState extends State<HomePage> {
             itemBuilder: (BuildContext context, int index) {
               final Movie movie = movies[index];
 
-              return GridTile(
-                child: Image.network(movie.image),
-                footer: GridTileBar(
-                  backgroundColor: Colors.black38,
-                  title: Text(movie.title),
+              return GestureDetector(
+                onTap: () {
+                  StoreProvider.of<AppState>(context).dispatch(SetSelectedMovie(movie.id));
+                  Navigator.pushNamed(context, '/details');
+                },
+                child: GridTile(
+                  child: Image.network(movie.image),
+                  footer: GridTileBar(
+                    backgroundColor: Colors.black38,
+                    title: Text(movie.title),
+                  ),
+                  //title: Text('$index. ${movie.title}'),
                 ),
-                //title: Text('$index. ${movie.title}'),
               );
             },
           );

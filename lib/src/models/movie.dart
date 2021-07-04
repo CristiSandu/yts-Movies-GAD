@@ -15,10 +15,32 @@ abstract class Movie implements Built<Movie, MovieBuilder> {
 // 1:06 to cont
   Movie._();
 
+  int get id;
+
+  int get year;
+
   String get title;
+
+  num get rating;
+
+  int get runtime;
+
+  String get state;
+
+  // BuiltList<String> get genres;
+
+  String get language;
+
+  String get summary;
+
+  @BuiltValueField(wireName: 'date_uploaded')
+  String get dateUploaded;
 
   @BuiltValueField(wireName: 'medium_cover_image')
   String get image;
+
+  @BuiltValueField(wireName: 'large_cover_image')
+  String get largeCoverImage;
 
   static Serializer<Movie> get serializer => _$movieSerializer;
 }

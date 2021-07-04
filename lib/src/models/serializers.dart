@@ -5,4 +5,6 @@ import 'package:yts_movies_gat/src/models/movie.dart';
 part 'serializers.g.dart';
 
 @SerializersFor(<Type>[Movie])
-Serializers serializers = (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();
+Serializers serializers = (_$serializers.toBuilder() //
+      ..addPlugin(StandardJsonPlugin()))
+    .build();
