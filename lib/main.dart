@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:http/http.dart';
 import 'package:redux/redux.dart';
+import 'package:redux_epics/redux_epics.dart';
 import 'package:yts_movies_gat/src/actions/get_movies.dart';
 import 'package:yts_movies_gat/src/data/movies_api.dart';
-import 'package:yts_movies_gat/src/middleware/middleware.dart';
+import 'package:yts_movies_gat/src/epics/app_epic.dart';
 import 'package:yts_movies_gat/src/models/app_state.dart';
 import 'package:yts_movies_gat/src/presentation/home_page.dart';
 import 'package:yts_movies_gat/src/presentation/movie_detailes.dart';
@@ -14,11 +15,13 @@ void main() {
   const String apiUrl = 'https://yts.mx/api/v2';
   final Client client = Client();
   final MoviesApi moviesApi = MoviesApi(apiUrl: apiUrl, client: client);
-  final AppMiddleware appMiddleware = AppMiddleware(moviesApi: moviesApi);
+  final AppEpics appEpics = AppEpics(moviesApi: moviesApi);
   final Store<AppState> store = Store<AppState>(
     reducer,
     initialState: AppState(),
-    middleware: appMiddleware.middleware,
+    middleware: <Middleware<AppState>>[
+      EpicMiddleware<AppState>(appEpics.epics),
+    ],
   );
   store.dispatch(GetMovies(store.state.page));
 
