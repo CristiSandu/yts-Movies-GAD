@@ -1,19 +1,11 @@
-import 'package:yts_movies_gat/src/models/movie.dart';
+part of actions;
 
-class GetMovies {
-  const GetMovies(this.page);
+@freezed
+class GetMovies with _$GetMovies implements AppAction {
+  const factory GetMovies() = GetMoviesStart;
 
-  final int page;
-}
+  const factory GetMovies.successful(List<Movie> movies) = GetMoviesSuccessful;
 
-class GetMoviesSuccessful {
-  GetMoviesSuccessful(this.movies);
-
-  final List<Movie> movies;
-}
-
-class GetMoviesError {
-  GetMoviesError(this.error);
-
-  final Object error;
+  @Implements(ErrorAction)
+  const factory GetMovies.error(Object error, StackTrace stackTrace) = GetMoviesError;
 }

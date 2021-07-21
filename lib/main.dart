@@ -3,7 +3,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:http/http.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_epics/redux_epics.dart';
-import 'package:yts_movies_gat/src/actions/get_movies.dart';
+import 'package:yts_movies_gat/src/actions/index.dart';
 import 'package:yts_movies_gat/src/data/movies_api.dart';
 import 'package:yts_movies_gat/src/epics/app_epic.dart';
 import 'package:yts_movies_gat/src/models/app_state.dart';
@@ -23,7 +23,7 @@ void main() {
       EpicMiddleware<AppState>(appEpics.epics),
     ],
   );
-  store.dispatch(GetMovies(store.state.page));
+  store.dispatch(const GetMovies());
 
   runApp(
     YtsApp(
@@ -40,11 +40,15 @@ class YtsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreProvider<AppState>(
       store: store,
-      child: MaterialApp(home: const HomePage(), theme: ThemeData.light(), routes: <String, WidgetBuilder>{
-        '/details': (BuildContext context) {
-          return const MovieDetails();
-        }
-      }),
+      child: MaterialApp(
+        home: const HomePage(),
+        theme: ThemeData.light(),
+        routes: <String, WidgetBuilder>{
+          '/details': (BuildContext context) {
+            return const MovieDetails();
+          }
+        },
+      ),
     );
   }
 }

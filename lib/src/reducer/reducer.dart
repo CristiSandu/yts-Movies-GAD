@@ -1,14 +1,19 @@
 import 'package:redux/redux.dart';
-import 'package:yts_movies_gat/src/actions/get_movies.dart';
-import 'package:yts_movies_gat/src/actions/set.dart';
+import 'package:yts_movies_gat/src/actions/index.dart';
 import 'package:yts_movies_gat/src/models/app_state.dart';
 
-Reducer<AppState> reducer = combineReducers(<Reducer<AppState>>[
-  TypedReducer<AppState, GetMovies>(_getMovies),
-  TypedReducer<AppState, GetMoviesSuccessful>(_getMoviesSuccessful),
-  TypedReducer<AppState, GetMoviesError>(_getMoviesError),
-  TypedReducer<AppState, SetSelectedMovie>(_setSelectedMovie)
-]);
+Reducer<AppState> reducer = combineReducers(
+  <Reducer<AppState>>[
+    (AppState state, dynamic action) {
+      print(action);
+      return state;
+    },
+    TypedReducer<AppState, GetMovies>(_getMovies),
+    TypedReducer<AppState, GetMoviesSuccessful>(_getMoviesSuccessful),
+    TypedReducer<AppState, GetMoviesError>(_getMoviesError),
+    TypedReducer<AppState, SetSelectedMovie>(_setSelectedMovie)
+  ],
+);
 
 AppState _getMoviesSuccessful(AppState state, GetMoviesSuccessful action) {
   return state.rebuild((AppStateBuilder b) {
