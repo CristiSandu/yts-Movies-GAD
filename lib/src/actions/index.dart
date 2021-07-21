@@ -3,7 +3,6 @@ library actions;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:yts_movies_gat/src/models/movie.dart';
 
-import 'index.dart';
 
 part 'index.freezed.dart';
 part 'get_movies.dart';
